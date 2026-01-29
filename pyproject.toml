@@ -54,3 +54,6 @@ include = ["kiro*"]
 
 [tool.setuptools.package-data]
 kiro = ["*.json", "*.txt"]
+
+[tool.setuptools]
+py-modules = ["main"]
