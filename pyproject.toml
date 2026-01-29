@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kiro-proxy"
+version = "1.0.0"
+description = "Proxy gateway for Kiro API - Use Claude models with OpenAI-compatible tools"
+readme = "README.md"
+license = {text = "AGPL-3.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Jwadow", email = "jwadow@example.com"}
+]
+keywords = ["kiro", "claude", "openai", "api", "proxy", "gateway"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.20.0",
+    "httpx>=0.24.0",
+    "loguru>=0.7.0",
+    "requests>=2.28.0",
+    "python-dotenv>=1.0.0",
+    "tiktoken>=0.5.0",
+    "click>=8.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "hypothesis>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/clipdalle/kiro-gateway"
+Repository = "https://github.com/clipdalle/kiro-gateway.git"
+Issues = "https://github.com/clipdalle/kiro-gateway/issues"
+
+[project.scripts]
+kiro-gateway-cli = "kiro.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["kiro*"]
+
+[tool.setuptools.package-data]
+kiro = ["*.json", "*.txt"]
