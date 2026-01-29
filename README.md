@@ -28,23 +28,24 @@ Based on [Jwadow/kiro-gateway](https://github.com/Jwadow/kiro-gateway)
 # Install
 pip install git+https://github.com/clipdalle/kiro-gateway.git
 
-# Setup (auto-detect Kiro IDE credentials)
+# Setup
 kiro-gateway-cli init
+#   → Select: 1. Kiro IDE (auto-detect)
+#   → Enter port: 8000
+#   → Generated API Key: xxxxx
+#   → Start server now? [Y/n]: Y
 
-# Start
+# Or start later
 kiro-gateway-cli start
 ```
 
 Output:
 ```
-  👻 Kiro Proxy
-
   ✅ Kiro Proxy is running!
 
-  Connection Info:
-    Base URL:  http://localhost:8000/v1
-    API Key:   OV_ij_LImltP3gztbaexRA
-    Models:    claude-sonnet-4.5, claude-sonnet-4, claude-haiku-4.5
+  Base URL:  http://localhost:8000/v1
+  API Key:   xxxxx
+  Models:    claude-sonnet-4.5, claude-sonnet-4, claude-haiku-4.5
 ```
 
 ---
