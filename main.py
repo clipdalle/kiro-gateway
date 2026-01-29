@@ -212,11 +212,20 @@ def validate_configuration() -> None:
     """
     errors = []
     
-    # Check if .env file exists
+    # Check if credentials are configured (via env vars or .env file)
     env_file = Path(".env")
-    env_example = Path(".env.example")
     
-    if not env_file.exists():
+    # Skip .env check if credentials are already set via environment variables
+    has_refresh_token = bool(REFRESH_TOKEN)
+    has_creds_file = bool(KIRO_CREDS_FILE)
+    has_cli_db = bool(KIRO_CLI_DB_FILE)
+    has_proxy_key = bool(PROXY_API_KEY)
+    
+    # If env vars are set (e.g., by CLI), skip .env file requirement
+    if (has_refresh_token or has_creds_file or has_cli_db) and has_proxy_key:
+        # Credentials configured via environment, validate them
+        pass
+    elif not env_file.exists():
         errors.append(
             ".env file not found!\n"
             "\n"
@@ -229,6 +238,10 @@ def validate_configuration() -> None:
             "   2.2. Set your Kiro credentials:\n"
             "      - 1 way: KIRO_CREDS_FILE to your Kiro credentials JSON file\n"
             "      - 2 way: REFRESH_TOKEN from Kiro IDE traffic\n"
+            "\n"
+            "Or use kiro-gateway-cli for easy setup:\n"
+            "   pip install git+https://github.com/clipdalle/kiro-gateway.git\n"
+            "   kiro-gateway-cli init\n"
             "\n"
             "See README.md for detailed instructions."
         )
