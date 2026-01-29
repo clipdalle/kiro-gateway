@@ -24,45 +24,14 @@ Based on [Jwadow/kiro-gateway](https://github.com/Jwadow/kiro-gateway)
 
 > ⚠️ **Note:** This fork only supports **Kiro IDE** mode. For other authentication methods (kiro-cli, AWS SSO, etc.), please refer to the [original repository](https://github.com/Jwadow/kiro-gateway).
 
-### Installation
-
 ```bash
+# Install
 pip install git+https://github.com/clipdalle/kiro-gateway.git
-```
 
-### Setup
-
-```bash
+# Setup (auto-detect Kiro IDE credentials)
 kiro-gateway-cli init
-```
 
-This will:
-1. Auto-detect your Kiro IDE credentials
-2. Generate an API key for your proxy
-3. Ask if you want to start the server
-
-```
-  👻 Kiro Proxy Setup
-
-  ? Select credentials source:
-
-    ❯ 1. Kiro IDE (auto-detect)
-      2. kiro-cli (not available)
-      3. Manual file path (e.g. ~/.aws/sso/cache/kiro-auth-token.json)
-
-  🔍 Searching for Kiro IDE credentials...
-  ✅ Found: ~/.aws/sso/cache/kiro-auth-token.json
-
-  ? Server port [8000]: 
-
-  🔑 Generated API Key: OV_ij_LImltP3gztbaexRA
-
-  ✅ Setup complete!
-```
-
-### Start Server
-
-```bash
+# Start
 kiro-gateway-cli start
 ```
 
@@ -73,7 +42,6 @@ Output:
   ✅ Kiro Proxy is running!
 
   Connection Info:
-
     Base URL:  http://localhost:8000/v1
     API Key:   OV_ij_LImltP3gztbaexRA
     Models:    claude-sonnet-4.5, claude-sonnet-4, claude-haiku-4.5
