@@ -6,6 +6,7 @@ loguru
 requests
 python-dotenv
 tiktoken
+openai
 
 # Testing dependencies
 pytest
